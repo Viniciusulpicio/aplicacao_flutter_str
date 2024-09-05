@@ -42,7 +42,7 @@ import 'package:flutter/material.dart'; // importa o flutter precisa em todas pa
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image(image: Image.asset("twitter.png")),
+                  // Image(image: Image.asset("twitter.png")),
                   TextFormField(
                     autofocus: true,
                     decoration: const InputDecoration(

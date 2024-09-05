@@ -1,6 +1,6 @@
 {
-    "name": "flutter_application_str",
-    "short_name": "flutter_application_str",
+    "name": "primeiro_aplicativo_mobile",
+    "short_name": "primeiro_aplicativo_mobile",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
