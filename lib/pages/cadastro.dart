@@ -28,7 +28,7 @@ class Cadastro extends StatelessWidget {
                 ),
                 const SizedBox(height: 20), // Espaçamento entre o texto e a imagem
                 Image.asset(
-                  'asset/bluesky.png', // Verifique o caminho da imagem
+                  'assets/image/bluesky.png', // Verifique o caminho da imagem
                   height: 100, // Altura da imagem
               ),
             ],

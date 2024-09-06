@@ -1,4 +1,4 @@
-# primeiro_aplicativo_mobile
+# primeira_aplicacao
 
 A new Flutter project.
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:primeiro_aplicativo_mobile/pages/cadastro.dart';
-import 'package:primeiro_aplicativo_mobile/pages/login.dart';
+import 'package:primeira_aplicacao/pages/login.dart';
 
 void main() {
   runApp(const MyApp());

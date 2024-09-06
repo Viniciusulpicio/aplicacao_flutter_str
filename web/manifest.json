@@ -1,6 +1,6 @@
 {
-    "name": "primeiro_aplicativo_mobile",
-    "short_name": "primeiro_aplicativo_mobile",
+    "name": "primeira_aplicacao",
+    "short_name": "primeira_aplicacao",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
