@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; // importa o flutter precisa em todas páginas
+import 'cadastro.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -74,6 +75,8 @@ class Login extends StatelessWidget {
                       ),
                     ),
                     style: const TextStyle(color: Colors.white), // Cor do texto digitado
+                                    obscureText: true, // Para ocultar a senha
+
                   ),
                   const SizedBox(height: 16), // Espaçamento
                   Center(
@@ -99,19 +102,36 @@ class Login extends StatelessWidget {
                   const SizedBox(height: 16),
                   const Divider(color: Colors.white), // Linha divisória
                   const Text(
+                    "Ainda não tem cadastro ?",
+                    style: TextStyle(
+
+                      color: Colors.white, // Cor do texto
+                    ),
+                  ),
+
+                                    ElevatedButton(
+                    onPressed: (){
+                      // navegar pag login
+                      Navigator.push(context, 
+                      MaterialPageRoute(builder: (context) => const Cadastro())
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 20, 31, 40), // Cor de fundo do botão
+                      // textStyle: Colors.white, // Cor do texto
+                    ),
+                    child: const Text(
                     "Cadastrar",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: Colors.white, // Cor do texto
+                      backgroundColor: Color.fromARGB(255, 20, 31, 40),
+                                            color: Colors.white, // Cor do texto
                     ),
                   ),
-                  const Text(
-                    "Sem cadastro? Clique acima",
-                    style: TextStyle(
-                      color: Colors.white, // Cor do texto
-                    ),
                   ),
+
+
                 ],
               ),
             ),
