@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart'; // importa o flutter precisa em todas páginas
+import 'package:flutter/material.dart';
+import 'widget/app_bar.dart'; // importa o flutter precisa em todas páginas
 import 'cadastro.dart';
 
 class Login extends StatelessWidget {
@@ -9,33 +10,10 @@ class Login extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: const Color.fromARGB(255, 20, 31, 40),
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(200.0), // Define a altura desejada
-          child: AppBar(
-            backgroundColor: const Color.fromARGB(255, 20, 31, 40),
-            flexibleSpace: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Centraliza os elementos
-              children: [
-               const SizedBox(height: 50), // Espaçamento superior
-                const Text(
-                  'Logue no MostardaX ',
-                  style: TextStyle(
-                    color: Colors.white, // Cor do texto
-                    fontSize: 24, // Tamanho da fonte
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20), // Espaçamento entre o texto e a imagem
-                Image.asset(
-                  'assets/image/skyflare.png', // Verifique o caminho da imagem
-                  height: 140, // Altura da imagem
-              ),
-            ],
-
-            
-          ),
-          
-            centerTitle: true, // Para garantir que o título esteja centralizado
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(200.0), // Define a altura desejada
+          child: CompBar(
+            title: 'Faça seu login MostardaX',
           ),
         ),
         body: Align(
@@ -56,14 +34,18 @@ class Login extends StatelessWidget {
                   TextFormField(
                     autofocus: true,
                     decoration: const InputDecoration(
-                      icon: Icon(Icons.mail_rounded, color: Colors.white), // Cor do ícone
+                      icon: Icon(Icons.mail_rounded,
+                          color: Colors.white), // Cor do ícone
                       hintText: "Informe o e-mail: ",
-                      hintStyle: TextStyle(color: Colors.white), // Cor do texto do hint
+                      hintStyle: TextStyle(
+                          color: Colors.white), // Cor do texto do hint
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white), // Cor da borda focada
+                        borderSide: BorderSide(
+                            color: Colors.white), // Cor da borda focada
                       ),
                     ),
-                    style: const TextStyle(color: Colors.white), // Cor do texto digitado
+                    style: const TextStyle(
+                        color: Colors.white), // Cor do texto digitado
                   ),
                   const SizedBox(height: 4),
                   TextFormField(
@@ -71,14 +53,16 @@ class Login extends StatelessWidget {
                     decoration: const InputDecoration(
                       icon: Icon(Icons.password, color: Colors.white),
                       hintText: "Informe a senha: ",
-                      hintStyle: TextStyle(color: Colors.white), // Cor do texto do hint
+                      hintStyle: TextStyle(
+                          color: Colors.white), // Cor do texto do hint
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white), // Cor da borda focada
+                        borderSide: BorderSide(
+                            color: Colors.white), // Cor da borda focada
                       ),
                     ),
-                    style: const TextStyle(color: Colors.white), // Cor do texto digitado
-                                    obscureText: true, // Para ocultar a senha
-
+                    style: const TextStyle(
+                        color: Colors.white), // Cor do texto digitado
+                    obscureText: true, // Para ocultar a senha
                   ),
                   const SizedBox(height: 16), // Espaçamento
                   Center(
@@ -89,14 +73,16 @@ class Login extends StatelessWidget {
                         backgroundColor: Colors.blueAccent, // Cor de fundo
                         foregroundColor: Colors.white, // Cor do texto
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0), // Borda arredondada
+                          borderRadius:
+                              BorderRadius.circular(10.0), // Borda arredondada
                         ),
                         side: const BorderSide(
                           color: Colors.blue, // Cor da borda
                           width: 4.0, // Largura da borda
                         ),
                         elevation: 5, // Sombra do botão
-                        shadowColor: Colors.white.withOpacity(0.1), // Opacidade da sombra
+                        shadowColor: Colors.white
+                            .withOpacity(0.1), // Opacidade da sombra
                       ),
                       child: const Text("Entrar"), // Texto no botão
                     ),
@@ -106,34 +92,33 @@ class Login extends StatelessWidget {
                   const Text(
                     "Ainda não tem cadastro ?",
                     style: TextStyle(
-
                       color: Colors.white, // Cor do texto
                     ),
                   ),
 
-                                    ElevatedButton(
-                    onPressed: (){
+                  ElevatedButton(
+                    onPressed: () {
                       // navegar pag login
-                      Navigator.push(context, 
-                      MaterialPageRoute(builder: (context) => const Cadastro())
-                      );
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Cadastro()));
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 20, 31, 40), // Cor de fundo do botão
+                      backgroundColor: const Color.fromARGB(
+                          255, 20, 31, 40), // Cor de fundo do botão
                       // textStyle: Colors.white, // Cor do texto
                     ),
                     child: const Text(
-                    "Cadastrar",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      backgroundColor: Color.fromARGB(255, 20, 31, 40),
-                                            color: Colors.white, // Cor do texto
+                      "Cadastrar",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        backgroundColor: Color.fromARGB(255, 20, 31, 40),
+                        color: Colors.white, // Cor do texto
+                      ),
                     ),
                   ),
-                  ),
-
-
                 ],
               ),
             ),
