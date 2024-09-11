@@ -17,9 +17,9 @@ class Cadastro extends StatelessWidget {
             flexibleSpace: Column(
               mainAxisAlignment: MainAxisAlignment.center, // Centraliza os elementos
               children: [
-               const SizedBox(height: 20), // Espaçamento superior
+               const SizedBox(height: 50), // Espaçamento superior
                 const Text(
-                  'Venha se cadastrar no BlueSky',
+                  'Venha se cadastrar no MostardaX ',
                   style: TextStyle(
                     color: Colors.white, // Cor do texto
                     fontSize: 24, // Tamanho da fonte
@@ -28,8 +28,8 @@ class Cadastro extends StatelessWidget {
                 ),
                 const SizedBox(height: 20), // Espaçamento entre o texto e a imagem
                 Image.asset(
-                  'assets/image/bluesky.png', // Verifique o caminho da imagem
-                  height: 100, // Altura da imagem
+                  'assets/image/skyflare.png', // Verifique o caminho da imagem
+                  height: 140, // Altura da imagem
               ),
             ],
 
@@ -40,11 +40,12 @@ class Cadastro extends StatelessWidget {
           ),
         ),
         
-        body:  Padding(
+        body:  SingleChildScrollView(
+        child: Padding(
           padding:  const EdgeInsets.all(16.0),
           child:  Column(
             children: [
-                              const SizedBox(height: 50), // Espaçamento entre os campos
+                              const SizedBox(height: 30), // Espaçamento entre os campos
 
                 const TextField(
                     autofocus: true,
@@ -59,6 +60,42 @@ class Cadastro extends StatelessWidget {
                     style:  TextStyle(color: Colors.white), // Cor do texto digitado
                 ),
                const SizedBox(height: 20), // Espaçamento entre os campos
+
+                               TextField(
+                    autofocus: false,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.numbers, color: Colors.white), // Cor do ícone
+                      hintText: "Digite seu CPF: ",
+                      hintStyle: TextStyle(color: Colors.white), // Cor do texto do hint
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white), // Cor da borda focada
+                      ),
+                    ),
+                    style:  const TextStyle(color: Colors.white), // Cor do texto digitado
+                keyboardType: TextInputType.number, // Abre o teclado numérico
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly, // Permite apenas números
+                ], ),
+                                                const SizedBox(height: 20), // Espaçamento entre os campos
+
+                
+                               TextField(
+                    autofocus: false,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.phone, color: Colors.white), // Cor do ícone
+                      hintText: "Digite seu numero: ",
+                      hintStyle: TextStyle(color: Colors.white), // Cor do texto do hint
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white), // Cor da borda focada
+                      ),
+                    ),
+                    style:  const TextStyle(color: Colors.white), // Cor do texto digitado
+                keyboardType: TextInputType.number, // Abre o teclado numérico
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly, // Permite apenas números
+                ], ),
+                                                const SizedBox(height: 20), // Espaçamento entre os campos
+
 
                const TextField(
                                     autofocus: false,
@@ -89,40 +126,23 @@ class Cadastro extends StatelessWidget {
                 ),
                 const SizedBox(height: 20), // Espaçamento entre os campos
 
-                TextField(
-                    autofocus: false,
-                    decoration: const InputDecoration(
-                      icon: Icon(Icons.numbers, color: Colors.white), // Cor do ícone
-                      hintText: "Digite seu CPF: ",
+
+                    const TextField(
+                                    autofocus: false,
+                    decoration:  InputDecoration(
+                      icon: Icon(Icons.password, color: Colors.white), // Cor do ícone
+                      hintText: "Confirme sua senha: ",
                       hintStyle: TextStyle(color: Colors.white), // Cor do texto do hint
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white), // Cor da borda focada
                       ),
                     ),
-                    style:  const TextStyle(color: Colors.white), // Cor do texto digitado
-                keyboardType: TextInputType.number, // Abre o teclado numérico
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.digitsOnly, // Permite apenas números
-                ], ),
-                                const SizedBox(height: 20), // Espaçamento entre os campos
-
-
-                TextField(
-                        autofocus: false,
-                    decoration: const InputDecoration(
-                      icon: Icon(Icons.house, color: Colors.white), // Cor do ícone
-                      hintText: "Digite seu CEP: ",
-                      hintStyle: TextStyle(color: Colors.white), // Cor do texto do hint
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white), // Cor da borda focada
-                      ),
-                    ),
-                    style:  const TextStyle(color: Colors.white), // Cor do texto digitado
-                keyboardType: TextInputType.number, // Abre o teclado numérico
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.digitsOnly, // Permite apenas números
-                ], 
+                    style:  TextStyle(color: Colors.white), // Cor do texto digitado
+                    obscureText: true, // Para ocultar a senha
                 ),
+                const SizedBox(height: 20), // Espaçamento entre os campos
+
+
                     const SizedBox(height: 35), // Espaçamento entre os campos
 
                                       Center(
@@ -186,6 +206,7 @@ class Cadastro extends StatelessWidget {
             ],
           ),
         ),
+        )
       ),
     );
   }

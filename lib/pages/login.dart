@@ -16,9 +16,9 @@ class Login extends StatelessWidget {
             flexibleSpace: Column(
               mainAxisAlignment: MainAxisAlignment.center, // Centraliza os elementos
               children: [
-               const SizedBox(height: 20), // Espaçamento superior
+               const SizedBox(height: 50), // Espaçamento superior
                 const Text(
-                  'Seja Bem-vindo ao Bluesky',
+                  'Logue no MostardaX ',
                   style: TextStyle(
                     color: Colors.white, // Cor do texto
                     fontSize: 24, // Tamanho da fonte
@@ -27,10 +27,12 @@ class Login extends StatelessWidget {
                 ),
                 const SizedBox(height: 20), // Espaçamento entre o texto e a imagem
                 Image.asset(
-                  'assets/image/bluesky.png', // Verifique o caminho da imagem
-                  height: 100, // Altura da imagem
+                  'assets/image/skyflare.png', // Verifique o caminho da imagem
+                  height: 140, // Altura da imagem
               ),
             ],
+
+            
           ),
           
             centerTitle: true, // Para garantir que o título esteja centralizado
