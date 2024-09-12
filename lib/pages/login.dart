@@ -96,7 +96,7 @@ class Login extends StatelessWidget {
                     ),
                   ),
 
-                  ElevatedButton(
+                  ElevatedButton( 
                     onPressed: () {
                       // navegar pag login
                       Navigator.push(
@@ -127,4 +127,4 @@ class Login extends StatelessWidget {
       ),
     );
   }
-}
+} 
