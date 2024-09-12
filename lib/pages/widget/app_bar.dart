@@ -33,4 +33,4 @@ class CompBar extends StatelessWidget {
       centerTitle: true, // Para garantir que o título esteja centralizado
     );
   }
-}
+}//teste
