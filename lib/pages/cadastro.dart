@@ -1,51 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import necessário para usar inputFormatters
 import 'login.dart';
+import 'widget/app_bar.dart'; // importa o flutter precisa em todas páginas
 
-class Cadastro extends StatelessWidget {
+
+class Cadastro extends StatefulWidget {
   const Cadastro({super.key});
 
+  @override
+  State<Cadastro> createState() => _CadastroState();
+}
+
+class _CadastroState extends State<Cadastro> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: const Color.fromARGB(255, 20, 31, 40),
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(200.0), // Define a altura desejada
-          child: AppBar(
-            backgroundColor: const Color.fromARGB(255, 20, 31, 40),
-            flexibleSpace: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Centraliza os elementos
-              children: [
-               const SizedBox(height: 50), // Espaçamento superior
-                const Text(
-                  'Venha se cadastrar no MostardaX ',
-                  style: TextStyle(
-                    color: Colors.white, // Cor do texto
-                    fontSize: 24, // Tamanho da fonte
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20), // Espaçamento entre o texto e a imagem
-                Image.asset(
-                  'assets/image/skyflare.png', // Verifique o caminho da imagem
-                  height: 140, // Altura da imagem
-              ),
-            ],
-
-            
-          ),
-          
-            centerTitle: true, // Para garantir que o título esteja centralizado
+        appBar: const PreferredSize(
+          preferredSize:  Size.fromHeight(200.0), // Define a altura desejada
+          child: CompBar(
+            title: 'Faça seu cadastro no MostardaX',
           ),
         ),
-        
         body:  SingleChildScrollView(
         child: Padding(
           padding:  const EdgeInsets.all(16.0),
           child:  Column(
             children: [
-                              const SizedBox(height: 30), // Espaçamento entre os campos
+                  const SizedBox(height: 30), // Espaçamento entre os campos
 
                 const TextField(
                     autofocus: true,

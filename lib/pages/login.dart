@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 import 'widget/app_bar.dart'; // importa o flutter precisa em todas páginas
 import 'cadastro.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final _formKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +35,7 @@ class Login extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             child: Form(
+              key: _formKey,
               child: Column(
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 // mainAxisAlignment: MainAxisAlignment.center,
@@ -44,6 +53,19 @@ class Login extends StatelessWidget {
                             color: Colors.white), // Cor da borda focada
                       ),
                     ),
+                    validator: (String? email) {
+                      if(email == "" || email == null){
+                        return "Preencha o email";
+                      }
+                      if(email.length < 6){
+                        return "O email não preenche os requisitos";
+                      }
+                      if(!email.contains("@")){
+                        return"O email é invalido";
+                      }
+
+                      return null;
+                    },
                     style: const TextStyle(
                         color: Colors.white), // Cor do texto digitado
                   ),
@@ -67,7 +89,9 @@ class Login extends StatelessWidget {
                   const SizedBox(height: 16), // Espaçamento
                   Center(
                     child: ElevatedButton(
-                      onPressed: () {}, // Ação do botão
+                      onPressed: () {
+                        buttonEnterClick();
+                      }, // Ação do botão
                       style: ElevatedButton.styleFrom(
                         fixedSize: const Size(200, 50), // Tamanho do botão
                         backgroundColor: Colors.blueAccent, // Cor de fundo
@@ -86,6 +110,8 @@ class Login extends StatelessWidget {
                       ),
                       child: const Text("Entrar"), // Texto no botão
                     ),
+
+                    
                   ),
                   const SizedBox(height: 16),
                   const Divider(color: Colors.white), // Linha divisória
@@ -127,4 +153,12 @@ class Login extends StatelessWidget {
       ),
     );
   }
+
+  buttonEnterClick(){
+    if (_formKey.currentState!.validate()){
+      print("form ok");
+    }
+    print("form erro");
+  }
+
 } 
