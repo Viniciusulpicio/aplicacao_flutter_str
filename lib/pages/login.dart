@@ -111,7 +111,7 @@ class _LoginState extends State<Login> {
                       child: const Text("Entrar"), // Texto no botão
                     ),
 
-                    
+
                   ),
                   const SizedBox(height: 16),
                   const Divider(color: Colors.white), // Linha divisória
@@ -160,5 +160,7 @@ class _LoginState extends State<Login> {
     }
     print("form erro");
   }
+  
 
 } 
+ 
