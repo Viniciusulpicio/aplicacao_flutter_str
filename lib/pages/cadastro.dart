@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import necessário para usar inputFormatters
-import 'login.dart';
 import 'widget/app_bar.dart'; // importa o flutter precisa em todas páginas
 
 
@@ -9,9 +8,16 @@ class Cadastro extends StatefulWidget {
 
   @override
   State<Cadastro> createState() => _CadastroState();
+  
 }
 
 class _CadastroState extends State<Cadastro> {
+     bool _showPassword = false;
+      bool _confirm_showPassword = false;
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -94,34 +100,56 @@ class _CadastroState extends State<Cadastro> {
                ),
                 const SizedBox(height: 20), // Espaçamento entre os campos
 
-                const TextField(
-                                    autofocus: false,
+                 TextField(
+                    obscureText: _showPassword == false ? true : false,
+
+                    autofocus: false,
                     decoration:  InputDecoration(
-                      icon: Icon(Icons.password, color: Colors.white), // Cor do ícone
+                      icon: const Icon(Icons.password, color: Colors.white), // Cor do ícone
+                      suffixIcon: GestureDetector(child: Icon(
+                        _showPassword == false ? Icons.visibility_off
+                        :Icons.visibility,
+                       color: Colors.white),
+                      onTap: (){
+                        setState(() {
+                          _showPassword = !_showPassword;
+                        }); 
+                      },),
+                      
+                      // icon: const Icon(Icons.password, color: Colors.white), // Cor do ícone
                       hintText: "Digite sua senha: ",
-                      hintStyle: TextStyle(color: Colors.white), // Cor do texto do hint
-                      focusedBorder: OutlineInputBorder(
+                      hintStyle: const TextStyle(color: Colors.white), // Cor do texto do hint
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white), // Cor da borda focada
                       ),
                     ),
-                    style:  TextStyle(color: Colors.white), // Cor do texto digitado
-                    obscureText: true, // Para ocultar a senha
+                    style:  const TextStyle(color: Colors.white), // Cor do texto digitado
                 ),
                 const SizedBox(height: 20), // Espaçamento entre os campos
 
 
-                    const TextField(
-                                    autofocus: false,
+                   TextField(
+                         autofocus: false,
+                 obscureText: _confirm_showPassword == false ? true : false,
+
                     decoration:  InputDecoration(
-                      icon: Icon(Icons.password, color: Colors.white), // Cor do ícone
+                      icon: const Icon(Icons.password, color: Colors.white), // Cor do ícone
+                      suffixIcon: GestureDetector(child: Icon(
+                        _confirm_showPassword == false ? Icons.visibility_off
+                        :Icons.visibility,
+                       color: Colors.white),
+                      onTap: (){
+                        setState(() {
+                          _confirm_showPassword = !_confirm_showPassword;
+                        }); 
+                      },),
                       hintText: "Confirme sua senha: ",
-                      hintStyle: TextStyle(color: Colors.white), // Cor do texto do hint
-                      focusedBorder: OutlineInputBorder(
+                      hintStyle: const TextStyle(color: Colors.white), // Cor do texto do hint
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white), // Cor da borda focada
                       ),
                     ),
-                    style:  TextStyle(color: Colors.white), // Cor do texto digitado
-                    obscureText: true, // Para ocultar a senha
+                    style:  const TextStyle(color: Colors.white), // Cor do texto digitado
                 ),
                 const SizedBox(height: 20), // Espaçamento entre os campos
 
@@ -160,32 +188,20 @@ class _CadastroState extends State<Cadastro> {
                   ),
 
 
-                  ElevatedButton(
-                    onPressed: (){
-                      // navegar pag login
-                      Navigator.push(context, 
-                      MaterialPageRoute(builder: (context) => const Login())
-                      );
-                    },
-                                        style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 20, 31, 40), // Cor de fundo do botão
-                      // textStyle: Colors.white, // Cor do texto
-                    ),
-                    child: const Text(
-                    "Logar",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Colors.white, // Cor do texto
+                  GestureDetector(
+                  child: const Text(
+                    "Login",
+                    style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        backgroundColor: Color.fromARGB(255, 20, 31, 40),
+                        color: Colors.white, // Cor do texto
                     ),
                   ),
-                  ),
-
+                  onTap: () => {Navigator.pushNamed(context, '/')}),
 
 
                   
-                
-
+      
             ],
           ),
         ),

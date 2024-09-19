@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'widget/app_bar.dart'; // importa o flutter precisa em todas páginas
-import 'cadastro.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -11,6 +10,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
+  bool _showPassword = false;
 
 
   @override
@@ -72,47 +72,60 @@ class _LoginState extends State<Login> {
                   const SizedBox(height: 4),
                   TextFormField(
                     autofocus: false,
-                    decoration: const InputDecoration(
-                      icon: Icon(Icons.password, color: Colors.white),
+                    obscureText: _showPassword == false ? true : false,
+                    decoration:  InputDecoration(
+                      icon: const Icon(Icons.password, color: Colors.white),
+                      suffixIcon: GestureDetector(child: Icon(
+                        _showPassword == false ? Icons.visibility_off
+                        :Icons.visibility,
+                       color: Colors.white),
+                      onTap: (){
+                        setState(() {
+                          _showPassword = !_showPassword;
+                        }); 
+                      },),
+                      
                       hintText: "Informe a senha: ",
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Colors.white), // Cor do texto do hint
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(
                             color: Colors.white), // Cor da borda focada
                       ),
                     ),
                     style: const TextStyle(
                         color: Colors.white), // Cor do texto digitado
-                    obscureText: true, // Para ocultar a senha
                   ),
                   const SizedBox(height: 16), // Espaçamento
                   Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        buttonEnterClick();
-                      }, // Ação do botão
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(200, 50), // Tamanho do botão
-                        backgroundColor: Colors.blueAccent, // Cor de fundo
-                        foregroundColor: Colors.white, // Cor do texto
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(10.0), // Borda arredondada
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/home'); // Navegação para a rota de cadastro
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 40.0), // Tamanho do botão
+                        decoration: BoxDecoration(
+
+                          color:  Colors.blueAccent, // Cor de fundo
+                          borderRadius: BorderRadius.circular(10.0), // Borda arredondada
+                          border: Border.all(
+                            color: Colors.blue, // Cor da borda
+                            width: 4.0, // Largura da borda
+                          ),
                         ),
-                        side: const BorderSide(
-                          color: Colors.blue, // Cor da borda
-                          width: 4.0, // Largura da borda
+                        child: const Text(
+                          "Entrar",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.white, // Cor do texto
+                          backgroundColor: Colors.blueAccent, // Cor de fundo
+                          ),
                         ),
-                        elevation: 5, // Sombra do botão
-                        shadowColor: Colors.white
-                            .withOpacity(0.1), // Opacidade da sombra
                       ),
-                      child: const Text("Entrar"), // Texto no botão
                     ),
-
-
                   ),
+
                   const SizedBox(height: 16),
                   const Divider(color: Colors.white), // Linha divisória
                   const Text(
@@ -122,29 +135,18 @@ class _LoginState extends State<Login> {
                     ),
                   ),
 
-                  ElevatedButton( 
-                    onPressed: () {
-                      // navegar pag login
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Cadastro()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(
-                          255, 20, 31, 40), // Cor de fundo do botão
-                      // textStyle: Colors.white, // Cor do texto
-                    ),
-                    child: const Text(
-                      "Cadastrar",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                  GestureDetector(
+                  child: const Text(
+                    "Me cadastrar",
+                    style: TextStyle(fontWeight: FontWeight.bold,
                         fontSize: 18,
                         backgroundColor: Color.fromARGB(255, 20, 31, 40),
                         color: Colors.white, // Cor do texto
-                      ),
                     ),
                   ),
+                  onTap: () => {Navigator.pushNamed(context, '/cadastro')}),
+
+                  
                 ],
               ),
             ),
