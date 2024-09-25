@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:primeira_aplicacao/shared/style.dart';
 import 'widget/app_bar.dart'; // importa o flutter precisa em todas páginas
 
 class Login extends StatefulWidget {
@@ -105,13 +106,15 @@ class _LoginState extends State<Login> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 40.0), // Tamanho do botão
                         decoration: BoxDecoration(
-
-                          color:  Colors.blueAccent, // Cor de fundo
-                          borderRadius: BorderRadius.circular(10.0), // Borda arredondada
-                          border: Border.all(
-                            color: Colors.blue, // Cor da borda
-                            width: 4.0, // Largura da borda
+                          gradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              MyColors.azulTopGradiente,
+                              MyColors.azulBottomGradiente,
+                            ],
                           ),
+                          borderRadius: BorderRadius.circular(10.0), // Borda arredondada
                         ),
                         child: const Text(
                           "Entrar",
@@ -119,12 +122,13 @@ class _LoginState extends State<Login> {
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                             color: Colors.white, // Cor do texto
-                          backgroundColor: Colors.blueAccent, // Cor de fundo
+                            backgroundColor: Colors.transparent, // Removido para evitar sobreposição com o gradiente
                           ),
                         ),
                       ),
                     ),
                   ),
+
 
                   const SizedBox(height: 16),
                   const Divider(color: Colors.white), // Linha divisória
