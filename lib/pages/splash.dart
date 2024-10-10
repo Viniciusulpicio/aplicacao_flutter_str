@@ -19,7 +19,7 @@ class Splash extends StatelessWidget {
       onEnd: () {
         debugPrint("Splash Screen: Ended");
       },
-    );
+    );  
   }
 }
 

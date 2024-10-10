@@ -11,11 +11,34 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("texto legais"), // Definindo o título do AppBar
-      ),
-      body: const Center(
-        child: Text("jhuan me beija"), // Exemplo de conteúdo
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8), // Margens internas
+          decoration: BoxDecoration(
+            color: Colors.grey[200], // Cor de fundo da barra de pesquisa
+            borderRadius: BorderRadius.circular(30), // Borda arredondada
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.search, color: Colors.grey), // Ícone da lupa
+              SizedBox(width: 10), // Espaçamento entre o ícone e o campo de texto
+              Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Pesquisar', // Placeholder do campo de pesquisa
+                    border: InputBorder.none, // Remove a borda padrão
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: Icon(Icons.bolt, color: Colors.yellow), // Ícone de raio
+                onPressed: () {
+                  // Ação do botão de raio
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
